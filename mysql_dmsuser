@@ -1,0 +1,1 @@
+mysql -h rdsmysql003.cluster-cjm0klmb9qta.us-east-2.rds.amazonaws.com -P 3306 -u DMS_USER -pDMS_USER --ssl_mode=DISABLED

@@ -1,0 +1,2 @@
+sqlplus 'admin/Phoebe66@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=opora001.cjm0klmb9qta.us-east-2.rds.amazonaws.com)(PORT=1521))(CONNECT_DATA=(SID=ORCL)))'
+

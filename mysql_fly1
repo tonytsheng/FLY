@@ -1,0 +1,1 @@
+mysql -h rdsmysql003.cluster-cjm0klmb9qta.us-east-2.rds.amazonaws.com -P 3306 -u fly1 -pfly1 --ssl_mode=DISABLED

@@ -1,0 +1,5 @@
+SID=`grep oracle dbtemplate | awk -F':' '{print $3}'`
+HOSTDESC=`grep oracle dbtemplate | awk -F':' '{print $2}'`
+
+sqlplus -S 'fly1/fly1@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=rdsora002.cjm0klmb9qta.us-east-2.rds.amazonaws.com)(PORT=1521))(CONNECT_DATA=(SID=ORCL)))'
+
