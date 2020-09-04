@@ -5,7 +5,8 @@ flightno=`echo $RANDOM | head -c2`
 #echo ${lname} " : " ${fname} " : " ${flightcarrier} " : " ${flightno}
 
 sqlplus -S 'fly1/fly1@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=opora001.cjm0klmb9qta.us-east-2.rds.amazonaws.com)(PORT=1521))(CONNECT_DATA=(SID=ORCL)))'<<EQ
-set linesize 200
+set linesize 200;
+set feedback off;
 alter session set nls_date_format = 'MM/DD/YYYY HH24:MI:SS';
 insert into
 reservation
