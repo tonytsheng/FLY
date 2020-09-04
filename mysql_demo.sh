@@ -1,4 +1,6 @@
-echo "+++ SOURCE"
+echo "+++++++++++++++++++++++++++++++++++++++"
+date
+echo "+++ SOURCE :: opora001.cjm0klmb9qta.us-east-2.rds.amazonaws.com"
 INS/ORA/ins.reservation.bsh
 
 for i in {1..5}
@@ -8,9 +10,17 @@ sleep 1
 done
 echo
 
-echo "+++ TARGET"
-mysql -h rdsmysql003.cluster-cjm0klmb9qta.us-east-2.rds.amazonaws.com -P 3306 -u fly1 -pfly1 --ssl_mode=DISABLED<<EQ
+echo "+++ TARGET :: rdsmysql003.cluster-cjm0klmb9qta.us-east-2.rds.amazonaws.com"
+mysql -h rdsmysql003.cluster-cjm0klmb9qta.us-east-2.rds.amazonaws.com --ssl_mode=DISABLED --table<<EQ
 use FLY1;
 SELECT * FROM ( SELECT * FROM RESERVATION ORDER BY id DESC LIMIT 5 ) sub ORDER BY id ASC;
 EQ
+echo
 
+echo "+++ READ REPLICA :: rdsmysql003r.cjm0klmb9qta.us-east-2.rds.amazonaws.com"
+mysql -h rdsmysql003r.cjm0klmb9qta.us-east-2.rds.amazonaws.com --ssl_mode=DISABLED --table<<EQ
+use FLY1;
+SELECT * FROM ( SELECT * FROM RESERVATION ORDER BY id DESC LIMIT 5 ) sub ORDER BY id ASC;
+EQ
+echo
+sleep 5
